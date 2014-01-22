@@ -1,4 +1,4 @@
-angular.module('hellokik').
+angular.module('nsrx').
 factory('local_storage', ['$log', ($log) ->
   get: (key) ->
     try

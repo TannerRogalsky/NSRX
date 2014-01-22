@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <% if Rails.env.production? || Rails.env.staging? %>
-<html ng-app="hellokik" manifest="manifest.appcache">
+<html ng-app="nsrx" manifest="manifest.appcache">
 <% else %>
-<html ng-app="hellokik">
+<html ng-app="nsrx">
 <% end %>
 <head>
   <title>Hello Kik <%= Rails.env.capitalize unless Rails.env.production? %></title>

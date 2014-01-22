@@ -10,11 +10,11 @@ login: &login
 
 development:
   <<: *login
-  database: hellokik_development
+  database: nsrx_development
 
 test:
   <<: *login
-  database: hellokik_test
+  database: nsrx_test
 
 staging:
   <<: *login
