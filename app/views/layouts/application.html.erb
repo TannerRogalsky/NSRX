@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<% if Rails.env.production? || Rails.env.staging? %>
+<html ng-app="hellokik" manifest="manifest.appcache">
+<% else %>
+<html ng-app="hellokik">
+<% end %>
+<head>
+  <title>Hello Kik <%= Rails.env.capitalize unless Rails.env.production? %></title>
+  <% if Rails.env.production? || Rails.env.staging? %>
+    <style type="text/css"><%= File.read(Rails.root.join('public'+stylesheet_path('application'))).html_safe %></style>
+  <% else %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  <% end -%>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+  <meta name="kik-prefer" content="true">
+  <meta name="description" content="Guess and create words with friends in this exciting game!">
+  <meta name="kik-more" content="https://wordswap.uken.com">
+  <meta name="kik-unsupported" content="android-2.2,ios-4">
+  <link rel="kik-icon" href="<%= asset_path "kik-icon-#{Rails.env}.png" %>">
+  <link rel="terms" href="http://www.uken.com/tos">
+  <link rel="privacy" href="http://www.uken.com/privacy">
+</head>
+<body>
+
+<div id="view-container" ng-class="{noScroll:(menuVisible||alertVisible)}">
+  <%= yield %>
+</div>
+
+</body>
+
+<% if Rails.env.production? || Rails.env.staging? %>
+<script type="text/javascript"><%= File.read(Rails.root.join('public'+javascript_path('application'))).html_safe %></script>
+<% else %>
+<%= javascript_include_tag 'application' %>
+<% end -%>
+
+</html>

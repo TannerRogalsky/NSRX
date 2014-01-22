@@ -1,0 +1,10 @@
+.spinner-green {
+  background: $green url(asset-path('spinner-green.gif')) no-repeat 90% center;
+}
+
+.spinner-alert {
+  background: asset_url('spinner-alert.gif');
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}

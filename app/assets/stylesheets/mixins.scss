@@ -1,0 +1,31 @@
+@mixin container-base {
+  width:98%;
+  padding:$margin-lg 1% $margin-lg 1%;
+  margin:0;
+  clear:both;
+  display:block;
+  overflow: auto;
+  text-align: center;
+}
+
+@mixin upper-gradient($top-colour, $btm-colour) {
+  @include linear-gradient(to bottom, $top-colour 0%, $btm-colour 20%, $fallback: $btm-colour);
+}
+
+@mixin tile-btn {
+  @include upper-gradient(#DDE8E8, #DEE9E9);
+  text-decoration: none;
+  border: none;
+  width:$em10px*7;
+  line-height: $em10px*7;
+  min-height: $em10px*7;
+  padding: 0.1em;
+  // margin: 0 0 0.25em 0.25em;
+}
+
+@mixin round-border($radius) {
+  -webkit-border-radius:$radius;
+  border-radius:$radius;
+}
+
+

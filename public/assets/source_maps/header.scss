@@ -1,0 +1,50 @@
+#header-static {
+  position:absolute;
+  top:0; left:0;
+}
+
+#header, #header-static {
+  width:100%;
+  height:2.6em;
+  line-height:2.6em;
+  background-color:#EFEFEF;
+  overflow: hidden;
+
+  img {
+    width:2.5em;
+  }
+
+  #header-right {
+    float:right;
+    width:30%;
+    text-align:right;
+
+    img:active {
+      opacity:0.5;
+      width:2.3em;
+      padding:0.1em;
+    }
+
+    img.close-btn {
+      width: 1.5em;
+      margin: 0.5em;
+    }
+  }
+
+  #header-left {
+    float:left;
+    width:30%;
+    text-align:left;
+  }
+
+  #header-center {
+    text-align: center;
+    width: 40%;
+    float: left;
+
+    img {
+      width: 3.3em;
+      margin: -0.7em 0em;
+    }
+  }
+}

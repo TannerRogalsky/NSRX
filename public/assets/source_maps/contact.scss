@@ -1,0 +1,43 @@
+#contact_us_container {
+
+  #error_explanation {
+    color: $red;
+    font-size: 80%;
+    h2 {
+      color: $red;
+      margin-bottom: 0.25em;
+    }
+  }
+
+  .field {
+    font-size:90%;
+    margin-bottom:0.5em;
+
+    label {
+      font-weight: 500;
+    }
+
+    input {
+      font-size:75%;
+    }
+
+    textarea {
+      width:17em;
+      height:12em;
+    }
+
+    select {
+      width:12em;
+    }
+  }
+
+  input[type=submit] {
+    border:none;
+    @include btn(#4E9A1F, $green);
+    width:95%;
+  }
+
+  #contact_us_form_column_1 {
+    margin-bottom: 0.75em;
+  }
+}

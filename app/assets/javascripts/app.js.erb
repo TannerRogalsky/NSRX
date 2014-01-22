@@ -1,0 +1,26 @@
+window.App = angular.module('hellokik', ['ngResource', 'ngRoute', 'ngTouch', 'ng-rails-csrf', 'ngAnimate', 'templates', 'ng-iscroll'])
+
+window.App.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
+  $routeProvider.
+    when("/play",        { templateUrl: "play.html",        controller: 'PlayCtrl' }).
+    when("/leaderboard", { templateUrl: "leaderboard.html", controller: 'LeaderboardCtrl' }).
+
+    otherwise(           { templateUrl: "home.html",        controller: 'HomeCtrl' });
+}]);
+
+window.App.run(['$rootScope', 'local_storage', function($rootScope, local_storage) {
+
+  window.applicationCache.addEventListener('updateready', function(e) {
+    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+      console.log("Update ready!!!");
+      // Uncomment if you want updates to be applied anytime
+      // window.location.reload();
+    }
+  }, false);
+
+  ManifestHelper.update_if_needed();
+
+  $rootScope.local_storage = local_storage
+
+  console.log("Finished 'app.run' initializer");
+}]);

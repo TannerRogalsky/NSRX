@@ -1,0 +1,61 @@
+.popup {
+  overflow: auto;
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0,0,0,0.5);
+  z-index: 20000;
+
+  .popup-container {
+    margin:15% auto 15% auto;
+    width:80%;
+    overflow:auto;
+    background-color:#EFEFEF;
+
+    .popup-header {
+      text-align: center;
+
+      h1 {
+        margin:0.5em;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+    }
+
+    .popup-content {
+      @include upper-gradient(#E6E6E6, #EFEFEF);
+      font-size: 1em;
+      padding: 0.5em;
+      overflow: auto;
+
+      p {
+        text-align:center;
+        padding: 0.5em;
+      }
+
+      .btn-full {
+        margin:1em 0.5em 0.5em 0.25em;
+        width:80%;
+        &:active { margin-top: 1.2em !important; }
+      }
+
+      .popup-buttons {
+        width: 90%;
+        margin: 0em auto;
+        overflow: auto;
+      }
+    }
+  }
+}
+
+// Used to allow UI elements outside of the popup to be clickable, use with care
+.show-through-popup {
+  z-index: 20001;
+}
+
+.blocker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}

@@ -1,0 +1,165 @@
+@media only screen
+and (max-width:240px) {
+  * {
+    font-size: 10px;
+  }
+}
+
+@media only screen
+and (-webkit-min-device-pixel-ratio:1) {
+  * {
+    font-size: 15.5px;
+  }
+}
+
+@media only screen
+and (-webkit-min-device-pixel-ratio:1)
+and (max-width:800px) {
+  * {
+    font-size: 38px;
+  }
+}
+
+@media only screen
+and (-webkit-min-device-pixel-ratio:1)
+and (max-width:720px) {
+  * {
+    font-size: 35px;
+  }
+}
+
+@media only screen
+and (-webkit-min-device-pixel-ratio:1)
+and (max-width:320px) {
+  * {
+    font-size: 15px;
+  }
+}
+
+@media only screen
+and (-webkit-min-device-pixel-ratio:1.3) {
+  * {
+    font-size:29px;
+  }
+}
+
+@media only screen
+and (-webkit-min-device-pixel-ratio:1.5) {
+  * {
+    font-size: 17px;
+  }
+}
+
+@media only screen
+and (-webkit-min-device-pixel-ratio:1.5)
+and (max-width:320px) {
+  * {
+    font-size: 15.5px;
+  }
+}
+
+@media only screen
+and (-webkit-min-device-pixel-ratio:1.5)
+and (max-width:480px) {
+  * {
+    font-size: 16px;
+  }
+}
+
+@media only screen
+and (-webkit-min-device-pixel-ratio:2) {
+  * {
+    font-size: 15.5px;
+  }
+}
+
+@media only screen
+and (-webkit-min-device-pixel-ratio:2)
+and (min-width:330px) {
+  * {
+    font-size: 17.5px;
+  }
+}
+
+@media only screen
+and (-webkit-min-device-pixel-ratio:3) {
+  * {
+    font-size: 17px;
+  }
+}
+
+* {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+input, textarea {
+  -webkit-user-select: auto !important;
+}
+
+a:link, a:visited, a:active, a:hover, a:focus { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
+p {
+  margin:0;
+}
+
+body,html
+{
+   height:100%;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  color: $darkest;
+  background-color: $lightest;
+  margin:0em;
+}
+
+p, h1, h2, h3, h4, h5, a { color: $darkest; }
+
+h1, h2, h3, h4, h5 { font-weight:bold; }
+
+header { margin: $margin-lg; }
+
+iframe {
+  border:none;
+}
+
+#wrapper {
+  position:absolute; z-index:1;
+  top:2.6em; bottom:50px; left:0; right:0;
+  width:100%;
+  overflow:scroll;
+  -webkit-overflow-scrolling: touch;
+  background-color:#EEEEEE;
+}
+
+#scroller {
+  float:left;
+  width:100%;
+  padding:0;
+}
+
+.tinytext {
+  font-size: 0.7em;
+  color: #A2A2A2;
+  line-height: 1.4em;
+  margin-top: 1.5em;
+
+  a {
+    font-size: 100%;
+  }
+}
+
+.centered {
+  text-align: center;
+}
+
+.white-bg {
+  background-color:$lightest !important;
+}

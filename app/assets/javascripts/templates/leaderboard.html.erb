@@ -1,0 +1,10 @@
+<h2>Hall of Fame</h2>
+
+<ul>
+	<li ng-repeat="user in users">
+		{{user.record}} - {{user.username}}
+		<button ng-click="kik(user)">Kik!</button>
+	</li>
+</ul>
+
+<button ng-click="go_back()">Back</button>

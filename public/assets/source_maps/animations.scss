@@ -1,0 +1,92 @@
+#view-container {
+  position:relative;
+  min-height: 100%;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  overflow:hidden;
+
+  &.noScroll {
+    overflow: hidden;
+  }
+
+  .view-animation {
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    min-height: 100%;
+    background: $lightest;
+
+    z-index: 10000;
+
+    // Hide new angular views until they are done loading
+    &:nth-child(2):not(.ng-animate) {
+      display: none;
+    }
+
+    &.noAnimation {
+      z-index: 0;
+    }
+
+    &.ng-enter, &.ng-leave {
+      @include transition(all 0.3s ease-in-out);
+    }
+
+    &.ng-enter.ng-enter-active {
+      @include transform(translateX(0));
+    }
+
+    &.ng-enter, &.ng-leave.ng-leave-active {
+      @include transform(translateX(100%));
+    }
+    &.noAnimation.ng-enter, &.noAnimation.ng-leave.ng-leave-active {
+      @include transform(translateX(0));
+    }
+  }
+}
+
+@include keyframes(pulse) {
+  0%, 100% {
+    @include transform(scale(1,1));
+  }
+  50% {
+    @include transform(scale(2,2));
+  }
+}
+
+@include keyframes(drop) {
+  0% {
+    @include transform(scale(2.5,2.5));
+  }
+  100% {
+    @include transform(scale(1, 1));
+  }
+}
+
+@include keyframes(shake) {
+  0% {
+    @include transform(translateX(0));
+  }
+  20% {
+    @include transform(translateX(-0.2em));
+  }
+  40% {
+    @include transform(translateX(0.2em));
+  }
+  60% {
+    @include transform(translateX(-0.2em));
+  }
+  80% {
+    @include transform(translateX(0.2em));
+  }
+  100% {
+    @include transform(translateX(0));
+  }
+}
+

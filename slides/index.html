@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Building Kik Applications</title>
+
+    <meta name="description" content="A guided tour or whatnot">
+    <meta name="author" content="Chester">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Hello Kik</h1>
+          <h3>A quick start into the magic world of <img src="img/kik_logo.jpeg" style="vertical-align:middle; border:none; margin:0 0 10px 0"></h3>
+          <p>
+            <small><a href="http://chester.me">Chester</a> / <a href="http://twitter.com/chesterbr">@chesterbr</a></small>
+          </p>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### How to build a Kik app?
+
+            <p class="fragment">Let&#39;s first identify the available <u>ways</u>. We will pick one, study a few of its <u>concepts</u>, then dive into our <u>real app</u></p>
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### Kik Application *(Card)*
+
+            A responsive <u>front-end</u> with access to <u>Kik features</u>, <br/>usually coordinated by a server <u>back-end</u>
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### Single-Page Application
+
+            Instead of navigating between pages, the browser updates parts<br/>
+            of a single page&#39;s HTML in response to user actions and external events
+          </script>
+        </section>
+
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Ways to build a SPA
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### 1) Direct DOM manipulation
+            (aka: Overly Manly Way)
+
+            Hook JavaScript code to events (`change`, `click`, etc.). This code will
+            the page elements (DOM) and make AJAX calls as needed
+
+            <br/>
+
+            - **Pros**: JavaScript; known tools (e.g., JQuery)
+            - **Cons**: Not productive; Hard to concile multiple events; messy code
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### 2) Kik&#39;s app.js
+
+            Emulates widget-style development found in mobile development tools
+
+            - **Pros**: Familiar environment (for some)
+            - **Cons**: Abstractions leak (Spolsky); not much widespread
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### 3) AngularJS
+
+            A framework that augments the browser with an MVC strucutre, providing
+            a clear separation between data, behaviour, UI and services
+
+            - **Pros**: "Mature" solution; very active; solid MVC/organization;
+            - **Cons**: Learning curve *#fear*
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Kik
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## AngularJS concepts
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### A SPA is independent of your server.
+
+            Even though you typically use your back-end server to also serve
+            the assets that compose an Angular app, it should be seen as a
+            completely separated thing (and not as a part of your server views)
+
+            AngularJS makes it more evident by implementing its own
+            MVC stack
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### AngularJS View
+
+            In AngularJS, the view (HTML) is a <u>template</u> that describes<br/>the
+            UI, and is not (conceptually) subject to change.
+
+            Your program binds this template to a <u>scope</u> (a namespace of<br/> <u>model</u> objects). A template can read any object on its scope
+
+            When an object in the scope changes,<br/>Angular refreshes the template(s) automatically
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### AngularJS Controller
+
+            - Initializes the scope objects for each view
+            - Provides methods that a view can trigger<br/>
+            (updating model objects that will affect the view)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### AngularJS Routes
+
+            Have your cake and eat it too!
+
+            Routes allow you to associate view+controller pairs with "virtual"
+            paths, navigating just like you did on non-single-page apps.
+
+            (you don&#39;t actually navigate: Angular pre-fetches the templates
+              and replaces the dynamic part of the main page)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### AngularJS Services and Directives
+
+            As any framework, Angular provides several utilities and a way to
+            expand upon them. But unlike most of them, those are dutifully
+            organized as services to avoid conflicts and preserve separation.
+
+            Lots of Angular view functionality is provided by custom tags or
+            tag attributes, which it calls <u>directives</u>. You can (and should)
+            create your own - they are very testable and reusable.
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Interacting with Kik
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### Anatomy of a card
+
+            A Kik card is just a URL with the `card://` protocol, which is associated
+            with the Kik app. Clicking `card://wordswap.uken.com` on a browser:
+
+            - Opens the Kik application
+            - Instructs it to load Word Swap!
+            - Adds a bookmark to the sidebar (if none already)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### cards.js
+
+            A library to do "Kik things": identify the user, send "kiks",<br/>pick friends for a game, respond to notifications, etc.
+
+            There is not much of a class hierarchy, just a bunch of methods.
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### cards.js quick examples
+
+            - sending a Kik:<br/>
+            `cards.kik.send("title", "text")`
+
+            - getting user info (and request "linking" if not already authorized):
+            `cards.kik.getUser(function (user) { ... })`
+
+            - Take a picture (and get it as a data-encoded JPEG)
+            `cards.photo.getFromCamera(options, function(picture) {...})`
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### cards.js
+
+            You can send internal (non-push) notifications from the server, but
+            almost everything else must be done on the client.
+
+            Documentation is very easy to follow: http://cards.kik.com/docs/
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Back-End
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### Back-End
+
+            There are lots of great options, but to make it easier
+            let&#39;s stick with what we know, works well and is easy to integrate: <u>Ruby On Rails</u>
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Putting it all together
+            (at last)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## hellokik
+
+            A very simple game-ish thing that you can<br/>
+            easily run and transform into your own game
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### http://github.com/uken/hellokik
+
+            Hands-on!
+          </script>
+        </section>
+
+        <section>
+          <h1>That's all, folks!</h1>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

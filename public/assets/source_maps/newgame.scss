@@ -1,0 +1,49 @@
+#game-list .play-friend {
+  div.avatar {
+
+    display:block;
+    float:left;
+    clear:both;
+    width:3.9em;
+    height:3.9em;
+    background-size:60%;
+    -webkit-border-radius:8em;
+            border-radius:8em;
+    border:solid 0.35em $green;
+    background-color:#FFFFFF;
+    background-repeat:no-repeat;
+    background-position:center;
+
+/*     @include round-border(5em);
+    border-color: $green !important;
+    box-shadow: 0 0 0.1em 0.35em $green;
+    -webkit-box-shadow: 0 0 0.1em 0.35em $green;
+    float:left;
+    padding:0.5em 0.6em;
+    margin:0.5em 0.75em;
+
+    img {
+      width:2.5em !important;
+      height:2.5em !important;
+    } */
+
+  }
+}
+
+#game-list .play-random {
+  div.avatar {
+
+    display:block;
+    float:left;
+    clear:both;
+    width:3.9em;
+    height:3.9em;
+    background-size:60%;
+    -webkit-border-radius:8em;
+            border-radius:8em;
+    border:solid 0.35em $red;
+    background-color:#FFFFFF;
+    background-repeat:no-repeat;
+    background-position:center;
+  }
+}

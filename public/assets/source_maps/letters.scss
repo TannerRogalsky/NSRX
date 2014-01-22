@@ -1,0 +1,165 @@
+// container positioning
+#play-area {
+  position:absolute;
+  bottom: 0.25em;
+  width:100%;
+
+  h1 {
+    color:$grey3;
+    margin:0.8em 1em 0.8em 0em;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    font-size: 0.8em;
+    float:right;
+    text-transform: uppercase;
+  }
+}
+
+table#word {
+  td {
+    margin:0.1em;
+  }
+}
+
+#word {
+  @include container-base;
+  @include upper-gradient(#EBEFEE, #F7FBFA);
+
+  padding: 0.6em 1% 0.6em 1%;
+
+  table {
+    td {
+      margin:0.1em;
+    }
+  }
+
+  .letter {
+    @include tile-base;
+    @include upper-gradient(#eaeaea, #f7f7f7);
+    min-height: 1.3em;
+    font-size: 1.5em;
+    font-weight: bold;
+
+    &.highlight, &.highlight-add {
+      background-color: $yellow;
+      background-image: none;
+    }
+
+    &.highlight-add {
+      @include transform(scale(1.3,1.3));
+      @include transition(all 0.3s ease-in);
+    }
+
+    &.highlight-add-stagger {
+      -webkit-transition-delay:0.1s;
+      transition-delay:0.1s;
+    }
+
+    &.highlight-add.highlight-add-active {
+      @include transform(scale(1.0,1.0));
+    }
+
+    img {
+      width:1em;
+      height:0.9em;
+      opacity:0.5;
+    }
+
+    span, div {
+      font-size: 100%;
+    }
+
+    .letter-itself.ng-enter {
+      @include animation(pulse 0.35s ease-in);
+    }
+  }
+
+  &.has-bonus .letter {
+    @include upper-gradient(#D3BC29, #DFC72C);
+    border-color:#D3BC29;
+  }
+}
+
+#letters {
+  @include upper-gradient(#EBF2F0, #F0F7F5);
+
+  padding:0.8em 1% 0em 1%;
+
+  table {
+    margin:0 auto 0 auto;
+    border-spacing: 0.3em;
+    position: relative;
+  }
+
+  a.tile {
+    @include tile-base;
+    @include tile-btn;
+  }
+
+  a.create-tile {
+    @include tile-base;
+    @include tile-btn;
+    width:$em10px*8.45;
+    line-height:$em10px*8.45;
+    padding:0em 0.1em 0.2em 0.1em;
+
+    span {
+      line-height: 1.5em;
+    }
+
+    span.wildcard {
+      line-height: 0em;
+      font-size: 1em;
+    }
+
+    &:active {
+      @include upper-gradient(#ffc, #ffc);
+      -webkit-transform: scale(1.2,1.2);
+              transform: scale(1.2,1.2);
+    }
+  }
+
+  a.correct {
+    @include upper-gradient($green-light, $green-light);
+    color:$green;
+  }
+
+  a.swapped-add {
+    @include animation(pulse 0.35s ease-in);
+  }
+
+  a.incorrect {
+    @include upper-gradient($red-light, $red-light);
+    color:$red;
+  }
+
+  a.bombed-add {
+    @include animation(shake 0.3s ease-in);
+  }
+
+  a.btn-green:active {
+    @include btn-click;
+    @include upper-gradient($green, $green);
+  }
+
+  a.btn-red:active {
+    @include btn-click;
+    @include upper-gradient($red, $red);
+  }
+
+  a.btn-yellow:active {
+    @include btn-click;
+    @include upper-gradient($gold, $gold);
+  }
+
+  a.btn-purple:active {
+    @include btn-click;
+    @include upper-gradient($purple, $purple);
+  }
+
+  a.btn-next {
+    @extend .btn-ti;
+    @extend .btn-green;
+    margin-left:.25em;
+  }
+}

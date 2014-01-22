@@ -1,0 +1,33 @@
+.clear {
+  clear:both;
+}
+
+.hidden { display:none; }
+
+.full-page {
+  padding: 1em 1.5em 5em;
+}
+
+.no-scroll {
+  overflow: visible;
+}
+
+.full-page p {
+  margin-bottom: 1em;
+}
+
+.center {
+  text-align: center;
+}
+
+.ng-hide {
+  display:none !important;
+}
+
+.blue-text {
+  color:$blue;
+}
+
+.orange-text {
+  color:$orange;
+}
